@@ -13,6 +13,7 @@
    * @constructor
    */
   function UserService($q){
+    // this is where you do the service call
     var users = [
       {
         name: 'Lia Lugo',
