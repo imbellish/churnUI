@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
-    <title>ChurnOver UI</title>
+    <title>Angular Material - Starter App</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +11,6 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
-
-
-
-
   </head>
 
   <body ng-app="churnOver" layout="column" ng-controller="ChurnController as cc">
@@ -41,21 +37,8 @@
       </md-sidenav>
 
       <md-content flex id="content">
-      <div ng-switch on ="cc.selected.id">
-        
-            <div ng-switch-when="0" >
-            <div ng-include="'src/churn/view/byaddress.html'"></div>
-            </div>
-
-            <div ng-switch-when="1" >
-              <div ng-include="'src/churn/view/zip.html'"></div>
-            </div>
-
-            <div ng-switch-when="2" >
-              <div ng-include="'src/churn/view/agent.html'"></div>
-            </div>
-
-      </div>
+          <h2>{{cc.selected.name}}</h2>
+          {{cc.selected.content}}
       </md-content>
 
   </div>
@@ -71,7 +54,6 @@
     <script src="src/churn/controllers/ChurnController.js"></script>
     <script src="src/churn/ChurnService.js"></script>
 
-    <script src="src/churn/directives/address.js"></script>
   <script type="text/javascript">
 
           angular

@@ -17,15 +17,18 @@
         var searchOptions = [
             {
                 name: 'Search By Address',
-                content: "<button>HELLO</button>"
+                content: "<button>HELLO</button>",
+                id:0
             },
             {
                 name: 'Search By Zipcode',
-                content: 'by zipcode form'
+                content: 'by zipcode form',
+                id:1
             },
             {
                 name: 'Search By Registered Agent',
-                content: 'by person form'
+                content: 'by person form',
+                id:2
             }
         ];
 
