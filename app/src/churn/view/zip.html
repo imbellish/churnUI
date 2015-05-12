@@ -1,16 +1,13 @@
-<md-bottom-sheet class="md-list md-has-header">
 
-    <md-subheader>
-        Contact <span class="name">{{ vm.user.name }}</span>:
-    </md-subheader>
 
-    <md-list>
-        <md-item ng-repeat="item in vm.items">
-            <md-button ng-click="vm.performAction(item)">
-                <md-icon md-svg-icon="{{ item.icon_url }}"></md-icon>
-                {{item.name}}
-            </md-button>
-        </md-item>
-    </md-list>
+    <div layout layout-sm="column">
+        <md-input-container flex>
+            <label>Zip Code</label>
+            <md-input ng-model="user.address1">
+        </md-input-container>
+        <md-select flex ng-model="user.entitystatus">
+            <md-option>Delinquent</md-option>
+        </md-select>
+    </div>
 
-</md-bottom-sheet>
+
