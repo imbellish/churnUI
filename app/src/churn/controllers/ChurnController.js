@@ -21,13 +21,28 @@
         self.searchOptions = [ ];
         self.toggleList = toggleList;
         self.selectOption = selectOption;
-
+        /*
         churnService
             .loadAllOptions()
             .then( function( options ) {
                 self.searchOptions = [].concat(options);
                 self.selected = options[0];
             });
+        */
+        self.searchOptions = [
+            {
+                name: 'Search By Address',
+                id:0
+            },
+            {
+                name: 'Search By Zipcode',
+                id:1
+            },
+            {
+                name: 'Search By Registered Agent',
+                id:2
+            }
+        ];
 
         function toggleList() {
             var pending = $mdBottomSheet.hide() || $q.when(true);

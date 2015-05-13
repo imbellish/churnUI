@@ -40,8 +40,14 @@
           </md-list>
       </md-sidenav>
 
+
       <md-content flex id="content">
-      <div ng-switch on ="cc.selected.id">
+      <md-tabs>
+        <md-tab label="Map">
+          <!-- place google map stuff here --> 
+        </md-tab>
+        <md-tab label='Search'>
+            <div ng-switch on ="cc.selected.id">
         
             <div ng-switch-when="0" >
             <div ng-include="'src/churn/view/byaddress.html'"></div>
@@ -55,8 +61,13 @@
               <div ng-include="'src/churn/view/agent.html'"></div>
             </div>
 
-      </div>
+            </div>
+        </md-tab>
+
+      </md-tabs>
+
       <md-button>
+      </md-button>
 
       </md-content>
 
