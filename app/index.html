@@ -30,16 +30,20 @@
 
       <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
           <md-list>
+                <md-button>Home</md-button>
 
               <md-item ng-repeat="it in cc.searchOptions">
                   <md-button ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }">
                       {{it.name}}
-
+                       </md-item>
+                  <md-button>Team</md-button>
+                  <md-button>Contact US</md-button>
           </md-list>
 
                   </md-button>
-                  <md-button>add here</md-button>
-              </md-item>
+                 
+
+             
       </md-sidenav>
 
 
