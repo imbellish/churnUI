@@ -14,6 +14,7 @@
      */
     function ChurnService($q){
         // this is where you do the service call
+        /*
         var searchOptions = [
             {
                 name: 'Search By Address',
@@ -31,12 +32,14 @@
                 id:2
             }
         ];
+        */
 
         // Promise-based API
-        return {
+        return { 
             loadAllOptions : function() {
                 // Simulate async nature of real remote calls
                 return $q.when(searchOptions);
+            
             }
         };
     }
