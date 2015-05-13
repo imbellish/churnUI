@@ -34,14 +34,17 @@
               <md-item ng-repeat="it in cc.searchOptions">
                   <md-button ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }">
                       {{it.name}}
-                  </md-button>
-              </md-item>
 
           </md-list>
+
+                  </md-button>
+                  <md-button>add here</md-button>
+              </md-item>
       </md-sidenav>
 
       <md-content flex id="content">
       <div ng-switch on ="cc.selected.id">
+
         
             <div ng-switch-when="0" >
             <div ng-include="'src/churn/view/byaddress.html'"></div>
