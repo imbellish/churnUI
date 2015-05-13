@@ -44,6 +44,7 @@
             }
         ];
 
+        self.entitystatus = [ ];
         function toggleList() {
             var pending = $mdBottomSheet.hide() || $q.when(true);
 
@@ -55,9 +56,6 @@
             self.selected = angular.isNumber(option) ? $scope.searchOptions[option] : option;
             self.toggleList();
         }
-
-
     }
-
 })();
 
