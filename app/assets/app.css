@@ -16,8 +16,18 @@ html, body {
   width: 36px;
 }
 
+.logo{width:20%;
+float: right;
+}
+
+md-toolbar{
+  background-color:#333;
+  padding:10px;
+}
+
 md-toolbar h1 {
   margin: auto;
+
 }
 
 /* Sidenav area */
@@ -48,6 +58,8 @@ md-list .md-button {
   padding-right: 40px;
   padding-top: 5px;
 }
+
+
 
 #content .md-button.share {
   background-color: transparent;
@@ -93,6 +105,10 @@ md-button.menuBtn > md-icon {
 
 .content-wrapper {
   position: relative;
+}
+
+.wrapper{
+  width:100%;
 }
 
 /* Typography support coming in 0.8.0 */

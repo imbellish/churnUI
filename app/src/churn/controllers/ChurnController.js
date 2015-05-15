@@ -30,17 +30,27 @@
             });
         */
         self.searchOptions = [
+             {
+                name: 'Home',
+                id:0
+               
+            },
             {
                 name: 'Search By Address',
-                id:0
+                id:1
+               
             },
             {
                 name: 'Search By Zipcode',
-                id:1
+                id:2
             },
             {
                 name: 'Search By Registered Agent',
-                id:2
+                id:3
+            },
+            {
+                name: 'Contact',
+                id:3
             }
         ];
 

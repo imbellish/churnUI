@@ -11,16 +11,24 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
   </head>
 
   <body ng-app="churnOver" layout="column" ng-controller="ChurnController as cc">
 
-  <md-toolbar layout="row">
+  <md-toolbar  layout="row">
+
       <md-button class="menu" hide-gt-sm ng-click="cc.toggleList()">
           <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
-      <h1>ChurnOver</h1>
+
+<div flex="right">
+     <div class="logo" style="margin-right:10%"> <img src="src/churn/img/logo.png"></div>
+</div>
+
   </md-toolbar>
+
+
 
   <div flex layout="row">
 
@@ -36,10 +44,39 @@
           </md-list>
       </md-sidenav>
 
-      <md-content flex id="content">
-          <h2>{{cc.selected.name}}</h2>
-          {{cc.selected.content}}
-      </md-content>
+        <md-content flex id="content">
+      <div ng-switch on ="cc.selected.id">
+        <md-tabs>
+          <md-tab label="Map">
+            <!-- THE MAGIC METHODS DIRECT TO HERE -->
+
+            <div id="map-canvas"></div>
+
+          </md-tab>
+          <md-tab label='Search'>
+              <div ng-switch on ="cc.selected.id">
+              <div ng-switch-when="0" >
+                  <div ng-include="'src/churn/view/home.html'"></div>
+                </div>
+                <div ng-switch-when="1" >
+                  <div ng-include="'src/churn/view/byaddress.html'"></div>
+                </div>
+                <div ng-switch-when="2" >
+                  <div ng-include="'src/churn/view/zip.html'"></div>
+                </div>
+                <div ng-switch-when="3" >
+                  <div ng-include="'src/churn/view/agent.html'"></div>
+                </div>
+              
+              </div>
+          </md-tab>
+
+        </md-tabs>
+        <!-- What does this button do?
+        <md-button>
+        </md-button>
+        -->
+        </md-content>
 
   </div>
 
@@ -58,14 +95,30 @@
 
           angular
               .module('churnOver', ['ngMaterial', "churn"])
+              
               .config(function( $mdIconProvider ){
 
               // Register the user `avatar` icons
               $mdIconProvider
                       .icon("menu", "./assets/svg/menu.svg", 24)
 
-          });
 
+          })
+
+               .config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('cyan', {
+      'default': '400',
+      'hue-1': '100', 
+      'hue-2': '600', 
+      'hue-3': 'A100' 
+    })
+    .accentPalette('orange', {
+      'default': '200' 
+    })
+});
+
+   
 
     </script>
 
