@@ -22,8 +22,7 @@
         <md-icon md-svg-icon="menu" ></md-icon>
     </md-button>
 
-    
-        <div class="logo" style="margin-right:10%" flex="left"> <img src="src/churn/img/logo.png"></div>
+    <div class="logo"  > <img src="src/churn/img/logo.png"></div>
 
 
 </md-toolbar>
@@ -36,7 +35,7 @@
         <md-list>
 
             <md-item ng-repeat="it in cc.searchOptions">
-                <md-button ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }">
+                <md-button ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }" class="menuoptions">
                     {{it.name}}
                 </md-button>
             </md-item>
