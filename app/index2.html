@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
-<<<<<<< HEAD
-    <title>ChurnOver</title>
-=======
+
     <title>ChurnOver | Butter Location Research</title>
->>>>>>> a97f9ee1bb7e7e1af92e421cf6a7e67c20b4bafc
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +38,7 @@
           <md-list>
 
               <md-item ng-repeat="it in cc.searchOptions">
-                  <md-button ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }">
+                  <md-button class="menuoptions" ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }">
                       {{it.name}}
                   </md-button>
               </md-item>
