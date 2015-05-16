@@ -1,4 +1,11 @@
 // spec.js
+
+function sleepFor( sleepDuration ){
+    var now = new Date().getTime();
+    while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
+}
+
+
 describe('ChurnOver Application', function() {
     it('should have a title', function() {
         browser.get('http://localhost:8000/');
@@ -12,18 +19,19 @@ describe('ChurnOver Application', function() {
     });
 
     it('should change content tab when menu is clicked', function(){
+        var expectedClassnames = [
+            'home',
+            'byaddress',
+            'byzip',
+            'byagent',
+            'contact'
+        ];
         element.all(by.css('.menuoptions')).then(function(items){
-            items[1].click();
-
-        })
+            for (i = 0; i < items.length; i ++){
+                items[i].click();
+                sleepFor(50);
+                expect(element(by.css("."+expectedClassnames[i]))).toBeTruthy();
+            }
+        });
     });
-
-    it('content tabs whould change when menu clicked', function(){
-        var address = element(by.css("#content_tab_002"));
-        address.click();
-        var content = element(by.css(".byaddress"));
-        expect(content).isDisplayed();
-
-    })
-
 });
