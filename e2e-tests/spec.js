@@ -24,7 +24,6 @@ describe('ChurnOver Application', function() {
 
     it('should change content tab when menu is clicked', function(){
 
-
         var expectedClassnames = [
             'home',
             'byaddress',
@@ -35,7 +34,7 @@ describe('ChurnOver Application', function() {
         element.all(by.css('.menuoptions')).then(function(items){
             for (i = 0; i < items.length; i ++){
                 items[i].click();
-                sleepFor(50);
+                //sleepFor(50);
                 //element(by.css(".logo img")).click();
                 //element(by.css('.menu')).click();
                 expect(element(by.css("."+expectedClassnames[i]))).toBeTruthy();
