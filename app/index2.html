@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
+<<<<<<< HEAD
+    <title>ChurnOver</title>
+=======
     <title>ChurnOver | Butter Location Research</title>
+>>>>>>> a97f9ee1bb7e7e1af92e421cf6a7e67c20b4bafc
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +22,7 @@
 
   <md-toolbar layout="row">
 
-      <md-button class="menu" hide-gt-sm ng-click="cc.toggleList()">
+      <md-button class="menu"  ng-click="cc.toggleList()">
           <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
 
@@ -32,7 +36,7 @@
 
   <div flex layout="row">
 
-      <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+      <md-sidenav lg-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
           <md-list>
 
               <md-item ng-repeat="it in cc.searchOptions">

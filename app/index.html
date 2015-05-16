@@ -12,6 +12,100 @@
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<<<<<<< HEAD
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+    <script>
+      var map;
+      function initialize() {
+        var mapOptions = {
+          zoom: 8,
+          center: new google.maps.LatLng(-34.397, 150.644)
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+
+  <body ng-app="churnOver" layout="column" ng-controller="ChurnController as cc">
+
+    <md-toolbar style="background-color:#333" layout="row">
+        <md-button class="menu" hide-gt-sm ng-click="cc.toggleList()">
+            <md-icon lg-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h1>ChurnOver</h1>
+    </md-toolbar>
+    <div flex layout="row">
+        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+            <md-list>
+                <md-item ng-repeat="it in cc.searchOptions">
+                    <md-button ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }">
+                        {{it.name}}
+            </md-list>
+            <div>
+              <md-button>add here</md-button>
+            </div>
+        </md-sidenav>
+        <md-content flex id="content">
+      <div ng-switch on ="cc.selected.id">
+        <md-tabs>
+          <md-tab label="Map">
+            <!-- THE MAGIC METHODS DIRECT TO HERE -->
+
+            <div id="map-canvas"></div>
+
+          </md-tab>
+          <md-tab label='Search'>
+              <div ng-switch on ="cc.selected.id">
+                <div ng-switch-when="0" >
+                  <div ng-include="'src/churn/view/byaddress.html'"></div>
+                </div>
+                <div ng-switch-when="1" >
+                  <div ng-include="'src/churn/view/zip.html'"></div>
+                </div>
+                <div ng-switch-when="2" >
+                  <div ng-include="'src/churn/view/agent.html'"></div>
+                </div>
+              </div>
+          </md-tab>
+
+        </md-tabs>
+        <!-- What does this button do?
+        <md-button>
+        </md-button>
+        -->
+        </md-content>
+    </div>
+
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-animate/angular-animate.js"></script>
+  <script src="./bower_components/angular-aria/angular-aria.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+  <script src="./bower_components/angular-route/angular-route.js"></script>
+
+  <script src="src/churn/Churn.js"></script>
+  <script src="src/churn/controllers/ChurnController.js"></script>
+  <script src="src/churn/ChurnService.js"></script>
+  <script type="text/javascript">
+      angular
+          .module('churnOver', ['ngMaterial', 'ngRoute', "churn"])
+          .config(function( $mdIconProvider ){
+          // Register the user `avatar` icons
+          $mdIconProvider
+                  .icon("menu", "./assets/svg/menu.svg", 24)
+      });
+  </script>
+
+  </body>
+=======
 </head>
 
 <body ng-app="churnOver" layout="column" ng-controller="ChurnController as cc">
@@ -112,4 +206,5 @@
 </script>
 
 </body>
+>>>>>>> a97f9ee1bb7e7e1af92e421cf6a7e67c20b4bafc
 </html>
