@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" >
-  <head>
-    <title>ChurnOver UI</title>
+<head>
+    <title>ChurnOver | Butter Location Research</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<<<<<<< HEAD
     <style>
       html, body, #map-canvas {
         height: 100%;
@@ -102,4 +105,106 @@
   </script>
 
   </body>
+=======
+</head>
+
+<body ng-app="churnOver" layout="column" ng-controller="ChurnController as cc">
+
+<md-toolbar layout="row">
+
+    <md-button class="menu" ng-click="cc.toggleList()">
+        <md-icon md-svg-icon="menu" ></md-icon>
+    </md-button>
+
+    <div class="logo"  > <img src="src/churn/img/logo.png"></div>
+
+
+</md-toolbar>
+
+
+
+<div flex layout="row">
+
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+        <md-list>
+
+            <md-item ng-repeat="it in cc.searchOptions">
+                <md-button ng-click="cc.selectOption(it)" ng-class="{'selected' : it === cc.selected }" class="menuoptions">
+                    {{it.name}}
+                </md-button>
+            </md-item>
+
+        </md-list>
+    </md-sidenav>
+
+    <md-content flex id="content">
+        <div ng-switch on ="cc.selected.id">
+            <md-tabs>
+                <md-tab label="Map">
+                    <!-- THE MAGIC METHODS DIRECT TO HERE -->
+
+                    <div id="map-canvas"></div>
+
+                </md-tab>
+                <md-tab label='Search'>
+                    <div ng-switch on ="cc.selected.id" id="content-body">
+                        <div ng-switch-when="0" >
+                            <div ng-include="'src/churn/view/home.html'"></div>
+                        </div>
+                        <div ng-switch-when="1" >
+                            <div ng-include="'src/churn/view/byaddress.html'"></div>
+                        </div>
+                        <div ng-switch-when="2" >
+                            <div ng-include="'src/churn/view/zip.html'"></div>
+                        </div>
+                        <div ng-switch-when="3" >
+                            <div ng-include="'src/churn/view/agent.html'"></div>
+                        </div>
+                    </div>
+                </md-tab>
+
+            </md-tabs>
+
+    </md-content>
+
+</div>
+
+
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+
+<script src="src/churn/Churn.js"></script>
+<script src="src/churn/controllers/ChurnController.js"></script>
+<script src="src/churn/ChurnService.js"></script>
+
+<script type="text/javascript">
+
+    angular
+            .module('churnOver', ['ngMaterial', "churn"])
+
+            .config(function( $mdIconProvider ){
+
+                // Register the menu icon
+                $mdIconProvider
+                        .icon("menu", "./assets/svg/menu.svg", 24)
+            })
+            .config(function($mdThemingProvider) {
+                $mdThemingProvider.theme('default')
+                        .primaryPalette('cyan', {
+                            'default': '400',
+                            'hue-1': '100',
+                            'hue-2': '600',
+                            'hue-3': 'A100'
+                        })
+                        .accentPalette('orange', {
+                            'default': '200'
+                        })
+            });
+</script>
+
+</body>
+>>>>>>> a97f9ee1bb7e7e1af92e421cf6a7e67c20b4bafc
 </html>
